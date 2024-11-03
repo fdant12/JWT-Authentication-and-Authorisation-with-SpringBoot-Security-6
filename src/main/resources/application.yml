@@ -3,8 +3,8 @@ spring:
     name: JWT-Authentication-and-Authorisation-with-SpringBoot-Security-6
   datasource:
     url: jdbc:postgresql://localhost:5432/jwt_learn_db
-    username:
-    password:
+    username: postgres
+    password: postgres
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
