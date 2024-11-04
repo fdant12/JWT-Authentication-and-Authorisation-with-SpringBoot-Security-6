@@ -1,5 +1,6 @@
-package com.example.jwtauthenticationandauthorisationwithspringbootsecurity6;
+package com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.model;
 
+import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
