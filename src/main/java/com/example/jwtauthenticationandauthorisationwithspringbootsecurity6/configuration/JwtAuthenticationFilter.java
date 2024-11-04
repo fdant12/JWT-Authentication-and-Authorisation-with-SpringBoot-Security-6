@@ -16,6 +16,8 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor // Create a constructor with any final field that we declare
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+    private final JwtService jwtService;
     @Override
     protected void doFilterInternal(
             @NonNull HttpServletRequest request,
@@ -24,6 +26,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     ) throws ServletException, IOException {
         final String authHeader = request.getHeader("Authorization"); // To pass jwt authentication Token within the header when we make a call
         final String jwt;
+        final String username;
 
         // Should always start with Bearer
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
@@ -32,5 +35,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         jwt = authHeader.substring(7);
+        username = jwtService.extractUsername(jwt); // todo extract the userEmail from JWT token
     }
 }
