@@ -17,3 +17,4 @@ spring:
     database: postgresql
     #this will help spring performing and writing better queries to match postgres SQL
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
