@@ -1,11 +1,15 @@
 package com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.configuration;
 
+import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.model.User;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -18,6 +22,8 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
+    private final UserDetailsService userDetailsService;
+
     @Override
     protected void doFilterInternal(
             @NonNull HttpServletRequest request,
@@ -36,5 +42,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         jwt = authHeader.substring(7);
         username = jwtService.extractUsername(jwt); // todo extract the userEmail from JWT token
+
+        // Check if the user is connected yet
+        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            User user = this.userDetailsService.loadByUsername(userEmail);
+        }
     }
 }
