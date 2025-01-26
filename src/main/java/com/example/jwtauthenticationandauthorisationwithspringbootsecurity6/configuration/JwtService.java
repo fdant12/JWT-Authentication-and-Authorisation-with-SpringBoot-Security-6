@@ -49,6 +49,19 @@ public class JwtService {
                 .compact(); // generate and return the token
     };
 
+    public boolean isValidToken(String token, UserDetails userDetails) {
+      final String username = extractUsername(token);
+      return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
+    }
+
+    private boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
+    }
+
+    private Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    };
+
     // Get all core infos that JWT transmits (i.e., user identity, permissions, expiration of JWT, to name a few).
     private Claims extractAllClaims(String token) {
         return Jwts.parser()
