@@ -1,4 +1,4 @@
-package com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth;
+package com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,8 +1,8 @@
 package com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.controller;
 
-import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.AuthenticationRequest;
-import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.AuthenticationResponse;
-import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.RegisterRequest;
+import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.model.AuthenticationRequest;
+import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.model.AuthenticationResponse;
+import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.model.RegisterRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
