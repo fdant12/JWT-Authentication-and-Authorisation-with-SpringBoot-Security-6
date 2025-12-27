@@ -1,8 +1,8 @@
 package com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.service;
 
-import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.AuthenticationRequest;
-import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.AuthenticationResponse;
-import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.RegisterRequest;
+import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.model.AuthenticationRequest;
+import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.model.AuthenticationResponse;
+import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.auth.model.RegisterRequest;
 import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.configuration.JwtService;
 import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.enums.Role;
 import com.example.jwtauthenticationandauthorisationwithspringbootsecurity6.model.User;
@@ -22,6 +22,7 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+
 
     public AuthenticationResponse registerUser(RegisterRequest registerRequest) {
         var user = User.builder()
